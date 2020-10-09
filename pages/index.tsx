@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import styles from "styles/Home.module.scss";
 
 export default function Home() {
   return (
@@ -10,14 +10,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <img id="logo" src="images/logo.svg" alt="" />
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <div className="dog" />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
@@ -60,6 +55,18 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
+
+      <style jsx>{`
+        .dog {
+          width: 9rem;
+          height: 9rem;
+          margin: 1rem 0;
+          border: 2px solid rgba(0, 0, 0, 0.2);
+          border-radius: 50%;
+          background-size: contain;
+          background-image: url("/images/dog.jpg");
+        }
+      `}</style>
     </div>
   );
 }
