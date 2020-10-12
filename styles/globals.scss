@@ -1,5 +1,5 @@
 @import "./base.scss";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 
 html,
 body {
@@ -8,13 +8,45 @@ body {
   padding: 0;
   margin: 0;
   font-family: $default-font-family;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-weight: 400;
 }
 
 * {
   box-sizing: border-box;
+}
+
+input {
+  font-family: $default-font-family;
+  font-weight: 400;
+  color: $default-font-color;
+  :focus {
+    border: none !important;
+  }
+}
+
+.observation {
+  font-size: 0.8rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: $footer-background;
+  border-top: $footer-border;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: $default-font-color;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    display: none;
+  }
 }
