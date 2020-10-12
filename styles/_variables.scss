@@ -1,7 +1,16 @@
-﻿$default-font-family: "Open sans", sans serif;
-
+﻿/* Globals */
+$default-font-family: "Open sans", sans serif;
 $default-background-color: #f8f8f8;
 $default-font-color: rgba(0, 0, 0, 0.7);
+$input-border: 2px solid lightgrey;
 $box-shadow-color: rgba(0, 0, 0, 0.1);
+/* END */
+
+/* Header */
+$header-background-color: white;
+/* END */
+
+/* Footer */
 $footer-border: 1px solid #cccccc;
-$footer-background: rbga(255, 255, 255, 0.4);
+$footer-background-color: rbga(255, 255, 255, 0.4);
+/* END */

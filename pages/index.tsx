@@ -25,17 +25,18 @@ export default function Home(
       </Head>
 
       <main className={styles.main}>
-        <img id="logo" src="images/logo.svg" alt="" />
+        <img
+          className={styles.logo}
+          src="images/logo.svg"
+          alt=""
+          onClick={() => router.push("/main")}
+        />
 
         <div className="dog" />
 
         <div className={styles.form}>
           <label>Where are you from?</label>
-          <input
-            type="text"
-            name="location"
-            onClick={() => router.push("/main")}
-          />
+          <input type="text" />
           <p className="observation">
             *Only available in USA, Canada or Mexico
           </p>
