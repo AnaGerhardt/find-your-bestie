@@ -32,3 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#prisma
+datamodel.prisma
+prisma.yml
+
+#docker
+docker-compose.yml

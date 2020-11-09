@@ -1,30 +1,21 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { InferGetServerSidePropsType } from "next";
-import { useEffect } from "react";
-import styles from "styles/Home.module.scss";
-import { tokenRequest } from "pages/api/pet-finder";
+import React from "react";
+import { AutoSuggest as LocationInput } from "components/AutoSuggest/AutoSuggest";
 
-export default function Home(
-  { data } /*: InferGetServerSidePropsType<typeof getServerSideProps>*/
-) {
-  // useEffect(() => {
-  //   whatever();
-  // });
-  // async function whatever() {
-  //   const api = await tokenRequest();
-  //   console.log(api);
-  // }
+import styles from "styles/pages/Index.module.scss";
+
+export default function Home({ data }) {
   const router = useRouter();
 
   return (
     <>
       <Head>
-        <title>Select Your Location</title>
+        <title>Select Your Location | Find Your Bestie!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.intro}>
         <img
           className={styles.logo}
           src="images/logo.svg"
@@ -36,10 +27,7 @@ export default function Home(
 
         <div className={styles.form}>
           <label>Where are you from?</label>
-          <input type="text" />
-          <p className="observation">
-            *Only available in USA, Canada or Mexico
-          </p>
+          <LocationInput data={data} />
         </div>
       </main>
 
@@ -64,26 +52,13 @@ export default function Home(
   );
 }
 
-// export async function getServerSideProps() {
-//   const encode = btoa(
-//     `${process.env.REACT_APP_CLIENT_KEY}:${process.env.REACT_APP_CLIENT_SECRET}`
-//   );
+export async function getStaticProps() {
+  const request = await fetch("http://localhost:3000/api/locations");
+  const json = await request.json();
 
-//   const requestOptions = {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/x-www-form-urlencoded",
-//       Authorization: `Basic ${encode}`,
-//     },
-//   };
-
-//   // Fetch data from external API
-//   const res = await fetch(
-//     `https://api.petfinder.com/v2/oauth2/token?grant_type=client_credentials`,
-//     requestOptions
-//   );
-//   const data: Object = await res.json();
-
-//   // Pass data to the page via props
-//   return { props: { data } };
-// }
+  return {
+    props: {
+      data: json.data,
+    },
+  };
+}

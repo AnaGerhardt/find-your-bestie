@@ -1,0 +1,12 @@
+﻿@import "../base.scss";
+
+.suggestionsContainer {
+  @extend %input;
+  box-shadow: 0px 2px 5px 1px $box-shadow-color;
+  background-color: $input-background;
+}
+
+.suggestionsList {
+  list-style: none;
+  padding: 0.5rem 0;
+}

@@ -16,9 +16,7 @@ body {
 }
 
 input {
-  font-family: $default-font-family;
-  font-weight: 400;
-  color: $default-font-color;
+  @extend %input;
   border: $input-border;
   outline: none;
   &:focus {
@@ -65,5 +63,12 @@ footer {
   }
   footer {
     display: none;
+  }
+}
+
+@media (min-width: 1680px) {
+  body,
+  html {
+    font-size: 22px;
   }
 }
