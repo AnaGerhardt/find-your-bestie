@@ -1,20 +1,13 @@
 ﻿import Head from "next/head";
-import { useRouter } from "next/router";
-import styles from "styles/pages/Main.module.scss";
+import Header from "components/Header/Header";
 
 export default function Main() {
-  const router = useRouter();
   return (
     <>
       <Head>
         <title>Main | Find Your Bestie!</title>
       </Head>
-      <header>
-        <input type="text" className={styles.search} />
-        <div className={styles.assets}>
-          <div className="avatar" onClick={() => router.push("/login")} />
-        </div>
-      </header>
+      <Header />
       <main>Ldsdsa</main>
       <style jsx>{`
         .avatar {

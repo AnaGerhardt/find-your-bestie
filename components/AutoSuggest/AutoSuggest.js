@@ -1,9 +1,12 @@
-﻿import React, { useState } from "react";
+﻿import loadCustomRoutes from "next/dist/lib/load-custom-routes";
+import React, { useState } from "react";
 import Autosuggest from "react-autosuggest";
+import { useRouter } from "next/router";
 
 import styles from "styles/components/AutoSuggest.module.scss";
 
 export const AutoSuggest = (props) => {
+  const router = useRouter();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const locations = props.data;
@@ -22,7 +25,7 @@ export const AutoSuggest = (props) => {
 
   const getSuggestionValue = (suggestion) => suggestion.city;
   const renderSuggestion = (suggestion) => (
-    <div className={styles.list}>
+    <div className={styles.list} onClick={() => router.push("/main")}>
       {suggestion.city + ", " + suggestion.country}
     </div>
   );

@@ -1,5 +1,12 @@
 ﻿@import "../base.scss";
 
+.input {
+  background-size: 1.5rem;
+  background-image: url("../../public/images/place.svg");
+  background-position: 3% center;
+  background-repeat: no-repeat;
+}
+
 .suggestionsContainer {
   @extend %input;
   box-shadow: 0px 2px 5px 1px $box-shadow-color;
@@ -9,4 +16,5 @@
 .suggestionsList {
   list-style: none;
   padding: 0.5rem 0;
+  cursor: pointer;
 }

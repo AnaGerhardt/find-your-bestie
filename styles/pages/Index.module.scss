@@ -25,8 +25,13 @@
     height: 2.5rem;
     width: 18rem;
     padding-left: 2.5rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
+}
+
+.observation {
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 @media (min-width: 1680px) {

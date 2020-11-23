@@ -1,13 +1,10 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React from "react";
 import { AutoSuggest as LocationInput } from "components/AutoSuggest/AutoSuggest";
 
 import styles from "styles/pages/Index.module.scss";
 
 export default function Home({ data }) {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -16,18 +13,16 @@ export default function Home({ data }) {
       </Head>
 
       <main className={styles.intro}>
-        <img
-          className={styles.logo}
-          src="images/logo.svg"
-          alt=""
-          onClick={() => router.push("/main")}
-        />
+        <img className={styles.logo} src="images/logo.svg" alt="" />
 
         <div className="dog" />
 
         <div className={styles.form}>
           <label>Where are you from?</label>
           <LocationInput data={data} />
+          <div className={styles.observation}>
+            Obs.: Currently only available in Edinburgh
+          </div>
         </div>
       </main>
 
@@ -40,12 +35,6 @@ export default function Home({ data }) {
           border-radius: 50%;
           background-size: contain;
           background-image: url("/images/dog.jpg");
-        }
-        input {
-          background-size: 1.5rem;
-          background-image: url("/images/place.svg");
-          background-position: 3% center;
-          background-repeat: no-repeat;
         }
       `}</style>
     </>
