@@ -6,3 +6,7 @@
   color: $default-font-color;
   border-radius: 5px;
 }
+
+@mixin box-shadow {
+  box-shadow: 0px 2px 5px 1px $box-shadow-color;
+}

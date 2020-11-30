@@ -13,7 +13,7 @@ export default function Home({ data }) {
       </Head>
 
       <main className={styles.intro}>
-        <img className={styles.logo} src="images/logo.svg" alt="" />
+        <div className={styles.logo} />
 
         <div className="dog" />
 

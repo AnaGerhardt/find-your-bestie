@@ -10,6 +10,9 @@
 }
 
 .logo {
+  background-image: url("../../public/images/logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 12rem;
 }
 
@@ -20,18 +23,19 @@
     display: block;
     margin-bottom: 0.5rem;
   }
+
   input {
     border-radius: 5px;
     height: 2.5rem;
     width: 18rem;
     padding-left: 2.5rem;
-    font-size: 1rem;
   }
 }
 
 .observation {
   font-size: 0.8rem;
   opacity: 0.8;
+  margin-top: 0.5rem;
 }
 
 @media (min-width: 1680px) {

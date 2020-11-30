@@ -5,10 +5,12 @@ import styles from "styles/components/Header.module.scss";
 const Header = () => {
   const router = useRouter();
   return (
-    <header>
-      <input type="text" className={styles.search} />
+    <header className={styles.header}>
+      <div className={styles.logo} />
       <div className={styles.assets}>
-        <div className="avatar" onClick={() => router.push("/login")} />
+        <input type="text" className={styles.search} />
+        <div className={styles.filter} />
+        <div className={styles.avatar} onClick={() => router.push("/login")} />
       </div>
     </header>
   );
