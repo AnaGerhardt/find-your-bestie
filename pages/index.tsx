@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { AutoSuggest as LocationInput } from "components/AutoSuggest/AutoSuggest";
+import { AutoSuggest as LocationInput, Footer } from "components";
 
 import styles from "styles/pages/Index.module.scss";
 
@@ -20,11 +20,11 @@ export default function Home({ data }) {
         <div className={styles.form}>
           <label>Where are you from?</label>
           <LocationInput data={data} />
-          <div className={styles.observation}>
-            Obs.: Currently only available in Edinburgh
-          </div>
+          <small>Obs.: Currently only available in Edinburgh</small>
         </div>
       </main>
+
+      <Footer />
 
       <style jsx>{`
         .dog {

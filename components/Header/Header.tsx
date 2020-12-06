@@ -2,7 +2,7 @@
 import { useRouter } from "next/router";
 import styles from "styles/components/Header.module.scss";
 
-const Header = () => {
+export const Header = () => {
   const router = useRouter();
   return (
     <header className={styles.header}>
@@ -15,5 +15,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

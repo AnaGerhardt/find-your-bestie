@@ -1,5 +1,4 @@
 ﻿import Head from "next/head";
-import Header from "components/Header/Header";
 
 export default function Main() {
   return (
@@ -7,7 +6,6 @@ export default function Main() {
       <Head>
         <title>Main | Find Your Bestie!</title>
       </Head>
-      <Header />
       <main>Ldsdsa</main>
       <style jsx>{`
         .avatar {

@@ -26,10 +26,6 @@ input {
   }
 }
 
-.observation {
-  font-size: 0.8rem;
-}
-
 footer {
   position: absolute;
   bottom: 0;
@@ -56,9 +52,18 @@ footer {
   }
 }
 
+@media (max-width: 601px) {
+  header {
+    padding: 0 1rem;
+  }
+  footer {
+    display: none;
+  }
+}
+
 @media (min-width: 1680px) {
   body,
   html {
-    font-size: 22px;
+    font-size: 1.2em;
   }
 }
