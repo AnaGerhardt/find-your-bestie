@@ -2,7 +2,7 @@
 
 export default async (req, res) => {
   const data = await db.any(
-    "SELECT COUNT(*) AS totalpet, city, country FROM pets group by city, country"
+    "SELECT COUNT(*) AS totalbylocation, city, country FROM pets group by city, country"
   );
 
   res.setHeader("Content-Type", "application/json");

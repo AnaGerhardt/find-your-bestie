@@ -42,7 +42,7 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps() {
-  const request = await fetch("http://localhost:3000/api/locations");
+  const request = await fetch(`${process.env.BASE_URL}/api/locations`);
   const json = await request.json();
 
   return {
