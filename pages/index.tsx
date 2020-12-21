@@ -41,7 +41,7 @@ export default function Home({ data }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const request = await fetch(`${process.env.BASE_URL}/api/locations`);
   const json = await request.json();
 
