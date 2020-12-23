@@ -1,10 +1,19 @@
 import Head from "next/head";
 import React from "react";
 import { AutoSuggest as LocationInput, Footer } from "components";
+import { connectToDatabase } from "../lib/db";
 
 import styles from "styles/pages/Index.module.scss";
 
-export default function Home({ data }) {
+interface IProps {
+  data: { _id: string; country: string; count: number }[];
+}
+
+export default function Home({ data }: IProps) {
+  const locations = data.map((el) => {
+    return { city: el._id, country: el.country };
+  });
+
   return (
     <>
       <Head>
@@ -19,7 +28,7 @@ export default function Home({ data }) {
 
         <div className={styles.form}>
           <label>Where are you from?</label>
-          <LocationInput data={data} />
+          <LocationInput data={locations} />
           <small>Obs.: Currently only available in Edinburgh</small>
         </div>
       </main>
@@ -41,13 +50,24 @@ export default function Home({ data }) {
   );
 }
 
-export async function getServerSideProps() {
-  const request = await fetch(`${process.env.BASE_URL}/api/locations`);
-  const json = await request.json();
+export async function getStaticProps() {
+  const { db } = await connectToDatabase();
+  const data = await db
+    .collection("pets")
+    .aggregate([
+      {
+        $group: {
+          _id: "$city",
+          count: { $sum: 1 },
+          country: { $first: "$country" },
+        },
+      },
+    ])
+    .toArray();
 
   return {
     props: {
-      data: json.data,
+      data: JSON.parse(JSON.stringify(data)),
     },
   };
 }
