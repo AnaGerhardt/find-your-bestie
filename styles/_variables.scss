@@ -2,9 +2,15 @@
 $default-font-family: "Open sans", sans serif;
 $default-background-color: #f8f8f8;
 $default-font-color: rgba(0, 0, 0, 0.7);
-$input-border: 2px solid lightgrey;
+$input-border: 1px solid lightgrey;
 $input-background: white;
 $box-shadow-color: #0000001a;
+$logo-color: #658fa9;
+/* END */
+
+/* Breakpoints */
+$small-breakpoint: 1050px;
+$large-breakpoint: 1500px;
 /* END */
 
 /* Header */

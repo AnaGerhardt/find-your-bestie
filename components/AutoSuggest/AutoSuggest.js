@@ -25,7 +25,7 @@ export const AutoSuggest = (props) => {
 
   const getSuggestionValue = (suggestion) => suggestion.city;
   const renderSuggestion = (suggestion) => (
-    <div className={styles.list} onClick={() => router.push("/main")}>
+    <div className={styles.list}>
       {suggestion.city + ", " + suggestion.country}
     </div>
   );
@@ -42,6 +42,13 @@ export const AutoSuggest = (props) => {
     setSuggestions([]);
   };
 
+  function onSuggestionSelected(event, { suggestion }) {
+    router.push({
+      pathname: "/main",
+      query: suggestion,
+    });
+  }
+
   const inputProps = {
     placeholder: "Type your location",
     value,
@@ -53,6 +60,7 @@ export const AutoSuggest = (props) => {
       suggestions={suggestions}
       onSuggestionsFetchRequested={onSuggestionsFetchRequested}
       onSuggestionsClearRequested={onSuggestionsClearRequested}
+      onSuggestionSelected={onSuggestionSelected}
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       inputProps={inputProps}

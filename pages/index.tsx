@@ -29,7 +29,7 @@ export default function Home({ data }: IProps) {
         <div className={styles.form}>
           <label>Where are you from?</label>
           <LocationInput data={locations} />
-          <small>Obs.: Currently only available in Edinburgh</small>
+          <small>Currently available only in Edinburgh</small>
         </div>
       </main>
 

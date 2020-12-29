@@ -1,1 +1,77 @@
-﻿
+﻿@import "../base.scss";
+
+.wrapper {
+  position: absolute;
+}
+
+.icons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 0.5rem 1rem 1rem 1rem;
+
+  svg {
+    width: 3rem;
+    height: auto;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+}
+
+.petLabel {
+  @include box-shadow;
+  height: auto;
+  display: flex;
+  border-radius: 1rem;
+  background-color: $header-background-color;
+  position: absolute;
+  bottom: -2.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  z-index: 1000;
+
+  .text {
+    margin: auto auto auto 0;
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+    h3 {
+      margin: 0 0 0.3rem 0;
+      color: $logo-color;
+    }
+  }
+  svg {
+    width: 25%;
+    height: auto;
+    align-self: center;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 5rem 0 10rem 0;
+  }
+  .petLabel {
+    width: 70vw;
+    margin: 0 15vw;
+  }
+}
+
+@media (min-width: $small-breakpoint) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 5rem 25vw 14rem 25vw;
+  }
+  .petLabel {
+    width: 20vw;
+    margin: 0 15vw;
+  }
+}

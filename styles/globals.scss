@@ -1,5 +1,6 @@
 @import "./base.scss";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
+@import url(//db.onlinewebfonts.com/c/0801c08e5412f54e4b4e9ad146d83a12?family=Ink+Free);
 
 html,
 body {
@@ -43,27 +44,52 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
-  header {
-    padding: 0 1rem;
+/* Carousel styles */
+.slick-slider {
+  div {
+    &:focus {
+      outline: 0;
+    }
   }
+}
+
+.slick-list {
+  height: 30rem;
+}
+
+.slick-arrow {
+  width: 2rem !important;
+  height: auto !important;
+}
+
+.slick-prev {
+  top: 39.5% !important;
+  left: 3% !important;
+  z-index: 1;
+  transform: scaleX(-1) !important;
+}
+.slick-next {
+  top: 44% !important;
+  right: 3% !important;
+  z-index: 1;
+}
+
+@media (max-width: $small-breakpoint) {
   footer {
     display: none;
   }
 }
 
-@media (max-width: 601px) {
-  header {
-    padding: 0 1rem;
-  }
-  footer {
-    display: none;
-  }
-}
-
-@media (min-width: 1680px) {
+@media (orientation: landscape) {
   body,
   html {
-    font-size: 1.2em;
+    font-size: 1.1vw;
+  }
+}
+
+@media (orientation: portrait) {
+  body,
+  html {
+    font-size: 2.5vh;
   }
 }
