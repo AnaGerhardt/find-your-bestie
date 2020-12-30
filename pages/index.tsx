@@ -24,28 +24,16 @@ export default function Home({ data }: IProps) {
       <main className={styles.intro}>
         <div className={styles.logo} />
 
-        <div className="dog" />
+        <div className={styles.dog} />
 
         <div className={styles.form}>
           <label>Where are you from?</label>
           <LocationInput data={locations} />
-          <small>Currently available only in Edinburgh</small>
+          <small>*Currently only available in Edinburgh</small>
         </div>
       </main>
 
       <Footer />
-
-      <style jsx>{`
-        .dog {
-          width: 9rem;
-          height: 9rem;
-          margin: 1.5rem 0;
-          border: 2px solid rgba(0, 0, 0, 0.2);
-          border-radius: 50%;
-          background-size: contain;
-          background-image: url("/images/dog.jpg");
-        }
-      `}</style>
     </>
   );
 }

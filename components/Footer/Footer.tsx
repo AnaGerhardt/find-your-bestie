@@ -1,6 +1,8 @@
-﻿export const Footer = () => {
+﻿import styles from "styles/components/Footer.module.scss";
+
+export const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <small>© Find your bestie. All rights reserved.</small>
       <small>
         Click{" "}

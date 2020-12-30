@@ -1,25 +1,15 @@
 ﻿@import "../base.scss";
 
-.wrapper {
-  position: absolute;
-}
-
 .icons {
   display: flex;
-  gap: 2rem;
+  gap: 5vw;
   justify-content: center;
-  margin: 0.5rem 1rem 1rem 1rem;
+  margin: 3vh 1rem;
 
   svg {
     width: 3rem;
     height: auto;
   }
-}
-
-.image {
-  width: 100%;
-  height: 25rem;
-  object-fit: cover;
 }
 
 .petLabel {
@@ -28,10 +18,9 @@
   display: flex;
   border-radius: 1rem;
   background-color: $header-background-color;
-  position: absolute;
+  position: fixed;
   bottom: -2.5rem;
   padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-  z-index: 1000;
 
   .text {
     margin: auto auto auto 0;
@@ -45,33 +34,40 @@
     }
   }
   svg {
-    width: 25%;
+    width: 4rem;
     height: auto;
     align-self: center;
     margin-left: auto;
   }
 }
 
-@media (max-width: $small-breakpoint) {
-  .wrapper {
-    width: 100%;
-    height: 100%;
-    padding: 5rem 0 10rem 0;
+@media (min-width: $small-breakpoint) and (orientation: landscape) {
+  .petLabel {
+    width: 25vw;
+    margin: 0 12vw;
+  }
+}
+
+@media (max-width: $small-breakpoint) and (orientation: landscape) {
+  .icons {
+    display: none;
   }
   .petLabel {
-    width: 70vw;
+    width: 40vw;
     margin: 0 15vw;
   }
 }
 
-@media (min-width: $small-breakpoint) {
-  .wrapper {
-    width: 100%;
-    height: 100%;
-    padding: 5rem 25vw 14rem 25vw;
-  }
+@media (max-width: $small-breakpoint) and (orientation: portrait) {
   .petLabel {
-    width: 20vw;
-    margin: 0 15vw;
+    width: 60vw;
+    margin: 0 20vw;
+  }
+}
+
+@media (min-width: $small-breakpoint) and (orientation: portrait) {
+  .petLabel {
+    width: 40vw;
+    margin: 0 30vw;
   }
 }

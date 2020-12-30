@@ -18,29 +18,13 @@ body {
 
 input {
   @extend %input;
+
+  // Not included in the mixin because of auto-suggest input
   border: $input-border;
-  outline: none;
-  font-size: 1rem;
+
   &:focus {
     border: none !important;
     @include box-shadow;
-  }
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 4rem;
-  background-color: $footer-background-color;
-  border-top: $footer-border;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  a {
-    color: $default-font-color;
   }
 }
 
@@ -54,7 +38,13 @@ footer {
 }
 
 .slick-list {
-  height: 30rem;
+  height: 70vh;
+
+  img {
+    height: 55vh;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .slick-arrow {
@@ -63,33 +53,63 @@ footer {
 }
 
 .slick-prev {
-  top: 39.5% !important;
+  top: 36.5% !important;
   left: 3% !important;
   z-index: 1;
   transform: scaleX(-1) !important;
 }
 .slick-next {
-  top: 44% !important;
+  top: 41% !important;
   right: 3% !important;
   z-index: 1;
 }
 
-@media (max-width: $small-breakpoint) {
-  footer {
-    display: none;
+@media (min-width: $small-breakpoint) and (orientation: portrait) {
+  .slick-list {
+    height: 85vh;
+
+    img {
+      height: 70vh;
+    }
   }
 }
 
-@media (orientation: landscape) {
-  body,
-  html {
-    font-size: 1.1vw;
+@media (min-width: $small-breakpoint) and (orientation: landscape) {
+  .slick-slider {
+    margin: 0 25vw;
   }
 }
 
-@media (orientation: portrait) {
+@media (max-width: $small-breakpoint) and (orientation: landscape) {
+  .slick-slider {
+    margin: 1rem 15vw;
+  }
+  .slick-list {
+    height: 75vh;
+
+    img {
+      height: 60vh;
+    }
+  }
+}
+
+@media (max-width: $large-breakpoint) {
   body,
   html {
-    font-size: 2.5vh;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: $large-breakpoint) and (max-width: $extra-large-breakpoint) {
+  body,
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: $extra-large-breakpoint) {
+  body,
+  html {
+    font-size: 20px;
   }
 }

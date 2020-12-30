@@ -4,7 +4,10 @@
   font-family: $default-font-family;
   font-weight: 400;
   color: $default-font-color;
-  border-radius: 5px;
+  background-color: $input-background;
+  border-radius: 3rem;
+  outline: none;
+  font-size: 1rem;
 }
 
 @mixin box-shadow {

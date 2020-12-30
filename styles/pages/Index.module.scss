@@ -1,12 +1,22 @@
 @import "../base.scss";
 
 .intro {
-  padding: 10vh 0;
+  padding-top: 10vh;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.dog {
+  width: 20vh;
+  height: 20vh;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  background-size: contain;
+  background-image: url("../../public/images/dog.jpg");
 }
 
 .logo {
@@ -22,15 +32,9 @@
   }
 
   input {
-    border-radius: 5px;
     height: 2.5rem;
-    width: 18rem;
+    width: 70vw;
+    max-width: 20rem;
     padding-left: 2.5rem;
-  }
-}
-
-@media (min-width: 1680px) {
-  .intro {
-    padding: 20vh 0;
   }
 }

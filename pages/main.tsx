@@ -48,30 +48,28 @@ export default function Main({ data }) {
       <Head>
         <title>Main | Find Your Bestie!</title>
       </Head>
-      <main>
-        <div className={styles.wrapper}>
-          <div className={styles.icons}>
-            <Dogs />
-            <Cats />
-            <Rabbits />
-            <Rodents />
-            <Birds />
-          </div>
-          <Slider {...settings}>
-            {data.map((pet: Pet, i: number) => (
-              <div key={i} className={styles.carousel}>
-                <div className={styles.petLabel}>
-                  <div className={styles.text}>
-                    <h3>{pet.name}</h3>
-                    <p>{pet.age + " " + pet.gender}</p>
-                  </div>
-                  <HeartButton />
-                </div>
-                <img src={pet.image} className={styles.image} />
-              </div>
-            ))}
-          </Slider>
+      <main className={styles.main}>
+        <div className={styles.icons}>
+          <Dogs />
+          <Cats />
+          <Rabbits />
+          <Rodents />
+          <Birds />
         </div>
+        <Slider {...settings}>
+          {data.map((pet: Pet, i: number) => (
+            <div key={i}>
+              <div className={styles.petLabel}>
+                <div className={styles.text}>
+                  <h3>{pet.name}</h3>
+                  <p>{pet.age + " " + pet.gender}</p>
+                </div>
+                <HeartButton />
+              </div>
+              <img src={pet.image} alt="" />
+            </div>
+          ))}
+        </Slider>
       </main>
     </>
   );
