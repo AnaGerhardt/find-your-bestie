@@ -12,62 +12,55 @@
   }
 }
 
+.slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
 .petLabel {
   @include box-shadow;
+  width: 65vw;
+  max-width: 18rem;
   height: auto;
   display: flex;
+  align-items: center;
   border-radius: 1rem;
   background-color: $header-background-color;
   position: fixed;
   bottom: -2.5rem;
   padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+}
 
-  .text {
-    margin: auto auto auto 0;
-    p {
-      margin: 0;
-      font-size: 0.85rem;
-    }
-    h3 {
-      margin: 0 0 0.3rem 0;
-      color: $logo-color;
-    }
+.petLabelText {
+  margin: auto auto auto 0;
+  p {
+    margin: 0;
+    font-size: 0.85rem;
   }
-  svg {
-    width: 4rem;
-    height: auto;
-    align-self: center;
-    margin-left: auto;
+  h3 {
+    margin: 0 0 0.3rem 0;
+    color: $logo-color;
   }
 }
 
-@media (min-width: $small-breakpoint) and (orientation: landscape) {
-  .petLabel {
-    width: 25vw;
-    margin: 0 12vw;
-  }
+.heartButton {
+  width: 4rem;
+  height: auto;
+  font-size: 3rem;
+  text-align: center;
+  color: #aab8c2;
+  // &:before {
+  //   content: "\2764";
+  // }
+}
+
+.isActive {
+  color: #e2264d;
 }
 
 @media (max-width: $small-breakpoint) and (orientation: landscape) {
   .icons {
     display: none;
-  }
-  .petLabel {
-    width: 40vw;
-    margin: 0 15vw;
-  }
-}
-
-@media (max-width: $small-breakpoint) and (orientation: portrait) {
-  .petLabel {
-    width: 60vw;
-    margin: 0 20vw;
-  }
-}
-
-@media (min-width: $small-breakpoint) and (orientation: portrait) {
-  .petLabel {
-    width: 40vw;
-    margin: 0 30vw;
   }
 }

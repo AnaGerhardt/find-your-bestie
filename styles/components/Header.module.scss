@@ -13,6 +13,7 @@
 }
 
 .logo {
+  cursor: default;
   font-family: Ink Free;
   font-size: 1.4rem;
   font-weight: bold;
@@ -22,7 +23,7 @@
 
 .assets {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.5rem;
   width: 100%;
   align-items: center;
@@ -39,25 +40,50 @@
   z-index: 1000;
 }
 
-.filter {
-  background-image: url("../../public/images/icons/filter.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 1.8rem;
-  width: 1.8rem;
-  cursor: pointer;
-  opacity: 0.7;
+.menu {
+  padding-bottom: 0.4rem;
+  vertical-align: middle;
+  opacity: 0.6;
+  font-size: 2.2rem;
 }
 
-.avatar {
-  background-image: url("../../public/images/avatar.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  justify-self: center;
-  height: 2.3rem;
-  width: 2.3rem;
-  cursor: pointer;
-  opacity: 0.6;
+.nav {
+  z-index: 2000;
+  background-color: $logo-color;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  padding: 2rem 3rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav.active {
+  transform: translateX(0);
+}
+
+.navClose {
+  color: white;
+}
+
+.nav ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 1rem 0 0 0;
+  li {
+    padding: 1rem 0;
+    svg {
+      vertical-align: middle;
+      width: 2rem;
+      margin-right: 0.8rem;
+    }
+  }
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
 }
 
 @media (max-width: $small-breakpoint) {
