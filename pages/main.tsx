@@ -1,5 +1,4 @@
-﻿import { useState } from "react";
-import Head from "next/head";
+﻿import Head from "next/head";
 import { connectToDatabase } from "../lib/db";
 
 import {
@@ -30,7 +29,6 @@ type Pet = {
 };
 
 export default function Main({ data }) {
-  const [isActive, setIsActive] = useState("");
   var settings = {
     dots: false,
     infinite: true,
@@ -60,7 +58,9 @@ export default function Main({ data }) {
             <div
               className={styles.slide}
               onDoubleClick={() =>
-                setIsActive(isActive === "" ? styles.isActive : "")
+                document
+                  .getElementById(`btn ${i}`)
+                  .classList.toggle(styles.isActive)
               }
               key={i}
             >
@@ -70,9 +70,10 @@ export default function Main({ data }) {
                   <p>{pet.age + " " + pet.gender}</p>
                 </div>
                 <button
-                  className={`${styles.heartButton} ${isActive}`}
-                  onClick={() =>
-                    setIsActive(isActive === "" ? styles.isActive : "")
+                  id={`btn ${i}`}
+                  className={styles.heartButton}
+                  onClick={(e) =>
+                    e.currentTarget.classList.toggle(styles.isActive)
                   }
                 >
                   ❤

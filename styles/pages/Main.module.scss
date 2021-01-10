@@ -54,6 +54,21 @@
 
 .isActive {
   color: #e2264d;
+  animation: pulse 0.5s ease-in;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: $small-breakpoint) and (orientation: landscape) {
