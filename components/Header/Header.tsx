@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useRef } from "react";
 import styles from "styles/components/Header.module.scss";
 import { ClientOnlyPortal } from "components";
 import { Logout, Heart } from "components/Icons";
@@ -25,9 +25,14 @@ export const Header = () => {
 };
 
 export const SideDrawer = () => {
+  const navRef = useRef();
   return (
-    <ClientOnlyPortal selector="#modal-root">
-      <nav id="nav" className={styles.nav}>
+    <ClientOnlyPortal
+      selector="#modal-root"
+      wrapperRef={navRef}
+      active={styles.active}
+    >
+      <nav id="nav" className={styles.nav} ref={navRef}>
         <button
           className={styles.navClose}
           onClick={() =>
