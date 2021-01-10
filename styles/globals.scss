@@ -28,6 +28,13 @@ input {
   }
 }
 
+button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
 /* Carousel styles */
 .slick-slider {
   div {
@@ -63,6 +70,7 @@ input {
   right: 3% !important;
   z-index: 1;
 }
+/* END */
 
 @media (min-width: $small-breakpoint) and (orientation: portrait) {
   .slick-list {

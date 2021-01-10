@@ -1,10 +1,8 @@
 ﻿import { useState } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { connectToDatabase } from "../lib/db";
 
 import {
-  HeartButton,
   SliderArrow,
   Dogs,
   Cats,
@@ -32,6 +30,7 @@ type Pet = {
 };
 
 export default function Main({ data }) {
+  const [isActive, setIsActive] = useState("");
   var settings = {
     dots: false,
     infinite: true,
@@ -58,13 +57,26 @@ export default function Main({ data }) {
         </div>
         <Slider {...settings}>
           {data.map((pet: Pet, i: number) => (
-            <div key={i}>
+            <div
+              className={styles.slide}
+              onDoubleClick={() =>
+                setIsActive(isActive === "" ? styles.isActive : "")
+              }
+              key={i}
+            >
               <div className={styles.petLabel}>
-                <div className={styles.text}>
+                <div className={styles.petLabelText}>
                   <h3>{pet.name}</h3>
                   <p>{pet.age + " " + pet.gender}</p>
                 </div>
-                <HeartButton />
+                <button
+                  className={`${styles.heartButton} ${isActive}`}
+                  onClick={() =>
+                    setIsActive(isActive === "" ? styles.isActive : "")
+                  }
+                >
+                  ❤
+                </button>
               </div>
               <img src={pet.image} alt="" />
             </div>

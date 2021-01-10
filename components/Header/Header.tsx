@@ -1,19 +1,56 @@
 ﻿import React from "react";
-import { useRouter } from "next/router";
 import styles from "styles/components/Header.module.scss";
+import { ClientOnlyPortal } from "components";
+import { Logout, Heart } from "components/Icons";
 
 export const Header = () => {
-  const router = useRouter();
-
   const onChange = () => {};
   return (
     <header className={styles.header}>
       <div className={styles.logo}>Find Your Bestie!</div>
       <div className={styles.assets}>
         <input type="text" className={styles.search} onChange={onChange} />
-        <div className={styles.filter} />
-        <div className={styles.avatar} onClick={() => router.push("/login")} />
+        <button
+          className={styles.menu}
+          onClick={() =>
+            document.getElementById("nav").classList.toggle(styles.active)
+          }
+        >
+          ☰
+        </button>
       </div>
+      <SideDrawer />
     </header>
+  );
+};
+
+export const SideDrawer = () => {
+  return (
+    <ClientOnlyPortal selector="#modal-root">
+      <nav id="nav" className={styles.nav}>
+        <button
+          className={styles.navClose}
+          onClick={() =>
+            document.getElementById("nav").classList.toggle(styles.active)
+          }
+        >
+          ✕
+        </button>
+        <ul>
+          <li>
+            <a href="#">
+              <Heart />
+              <span>Favourites</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <Logout />
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </ClientOnlyPortal>
   );
 };
