@@ -1,10 +1,13 @@
 import "styles/globals.scss";
+import "nprogress/nprogress.css";
+import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import { Layout as BasicLayout } from "components";
+import { ToastContainer } from "react-toastify";
 import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -20,9 +23,12 @@ function MyApp({ Component, pageProps }) {
   const Layout = router.pathname === "/" ? React.Fragment : BasicLayout;
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <ToastContainer position="top-center" />
+    </>
   );
 }
 

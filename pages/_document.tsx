@@ -6,8 +6,8 @@ export default class MyDocument extends Document {
       <Html>
         <Head />
         <body>
-          <Main />
           <div id="modal-root" />
+          <Main />
           <NextScript />
         </body>
       </Html>

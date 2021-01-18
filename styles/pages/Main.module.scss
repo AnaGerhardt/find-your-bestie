@@ -4,7 +4,11 @@
   display: flex;
   gap: 5vw;
   justify-content: center;
-  margin: 3vh 1rem;
+  margin: 3vh 1rem 1.5vh 1rem;
+
+  span {
+    cursor: pointer;
+  }
 
   svg {
     width: 3rem;
@@ -54,7 +58,7 @@
 
 .isActive {
   color: #e2264d;
-  animation: pulse 0.5s;
+  animation: pulse 0.4s ease-in;
 }
 
 @keyframes pulse {

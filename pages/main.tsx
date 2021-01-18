@@ -1,5 +1,7 @@
-﻿import Head from "next/head";
+﻿import { useState } from "react";
+import Head from "next/head";
 import { connectToDatabase } from "../lib/db";
+import { toast } from "react-toastify";
 
 import {
   SliderArrow,
@@ -29,7 +31,9 @@ type Pet = {
 };
 
 export default function Main({ data }) {
-  var settings = {
+  const [pets, setPets] = useState(data);
+
+  const settings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -40,6 +44,13 @@ export default function Main({ data }) {
     prevArrow: <SliderArrow />,
   };
 
+  const petFilter = (petType: string) => {
+    const filter = data.filter((pet: Pet) => pet.type === petType);
+    filter.length !== 0
+      ? (setPets(filter), toast.dismiss("toastId"))
+      : toast["error"]("No match found :(", { toastId: "toastId" });
+  };
+
   return (
     <>
       <Head>
@@ -47,14 +58,24 @@ export default function Main({ data }) {
       </Head>
       <main className={styles.main}>
         <div className={styles.icons}>
-          <Dogs />
-          <Cats />
-          <Rabbits />
-          <Rodents />
-          <Birds />
+          <span onClick={() => petFilter("Dog")}>
+            <Dogs />
+          </span>
+          <span onClick={() => petFilter("Cat")}>
+            <Cats />
+          </span>
+          <span onClick={() => petFilter("Rabbit")}>
+            <Rabbits />
+          </span>
+          <span onClick={() => petFilter("Rodent")}>
+            <Rodents />
+          </span>
+          <span onClick={() => petFilter("Bird")}>
+            <Birds />
+          </span>
         </div>
         <Slider {...settings}>
-          {data.map((pet: Pet, i: number) => (
+          {pets.map((pet: Pet, i: number) => (
             <div
               className={styles.slide}
               onDoubleClick={() =>
