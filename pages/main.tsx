@@ -2,6 +2,7 @@
 import Head from "next/head";
 import { connectToDatabase } from "../lib/db";
 import { toast } from "react-toastify";
+import FilterContext from "helpers/FilterContext";
 
 import {
   SliderArrow,
@@ -30,6 +31,8 @@ type Pet = {
   image: string;
 };
 
+type Query = Partial<Pet>;
+
 export default function Main({ data }) {
   const [pets, setPets] = useState(data);
 
@@ -44,11 +47,11 @@ export default function Main({ data }) {
     prevArrow: <SliderArrow />,
   };
 
-  const petFilter = (petType: string) => {
-    const filter = data.filter((pet: Pet) => pet.type === petType);
-    filter.length !== 0
-      ? (setPets(filter), toast.dismiss("toastId"))
-      : toast["error"]("No match found :(", { toastId: "toastId" });
+  const petFilter = (filter: string) => {
+    // const filteredData = data.filter((pet: Pet) => pet.type === petType);
+    // filteredData.length !== 0
+    //   ? (setPets(filteredData), toast.dismiss("toastId"))
+    //   : toast["error"]("No match found :(", { toastId: "toastId" });
   };
 
   return (
@@ -111,7 +114,6 @@ export default function Main({ data }) {
 
 export async function getServerSideProps({ query }) {
   const { db } = await connectToDatabase();
-
   const data = await db.collection("pets").find(query).toArray();
 
   return {

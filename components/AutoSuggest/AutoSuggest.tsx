@@ -45,7 +45,7 @@ export const AutoSuggest = (props) => {
   function onSuggestionSelected(event, { suggestion }) {
     router.push({
       pathname: "/main",
-      query: suggestion,
+      query: { ...suggestion, type: "Dog" },
     });
   }
 

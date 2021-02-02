@@ -6,3 +6,5 @@ export * from "./Rodents";
 export * from "./Birds";
 export * from "./Logout";
 export * from "./Heart";
+export * from "./Filter";
+export * from "./Menu";
