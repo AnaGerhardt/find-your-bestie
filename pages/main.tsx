@@ -1,8 +1,9 @@
-﻿import { useState } from "react";
+﻿import { useState, useEffect } from "react";
+import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { connectToDatabase } from "../lib/db";
 import { toast } from "react-toastify";
-import FilterContext from "helpers/FilterContext";
 
 import {
   SliderArrow,
@@ -22,19 +23,26 @@ import styles from "styles/pages/Main.module.scss";
 
 type Pet = {
   name: string;
-  age: string;
-  gender: string;
-  type: string;
+  age: "young" | "adult" | "senior";
+  gender: "female" | "male";
+  type: "Dog" | "Cat" | "Rabbit" | "Rodent" | "Bird";
   breed: string;
   city: string;
   country: string;
   image: string;
 };
 
-type Query = Partial<Pet>;
-
 export default function Main({ data }) {
-  const [pets, setPets] = useState(data);
+  const router = useRouter();
+  const [pets, setPets] = useState([]);
+
+  const toastError = () =>
+    toast["error"]("No match found :(", { toastId: "toastId" });
+  const toastSuccess = () => toast.dismiss("toastId");
+
+  useEffect(() => {
+    data.length > 0 ? (setPets(data), toastSuccess()) : toastError();
+  }, [data]);
 
   const settings = {
     dots: false,
@@ -47,11 +55,14 @@ export default function Main({ data }) {
     prevArrow: <SliderArrow />,
   };
 
-  const petFilter = (filter: string) => {
-    // const filteredData = data.filter((pet: Pet) => pet.type === petType);
-    // filteredData.length !== 0
-    //   ? (setPets(filteredData), toast.dismiss("toastId"))
-    //   : toast["error"]("No match found :(", { toastId: "toastId" });
+  const petFilter = (filter: Pet["type"]) => {
+    router.replace({
+      query: {
+        city: router.query.city,
+        country: router.query.country,
+        type: filter,
+      },
+    });
   };
 
   return (
@@ -112,13 +123,12 @@ export default function Main({ data }) {
   );
 }
 
-export async function getServerSideProps({ query }) {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { db } = await connectToDatabase();
   const data = await db.collection("pets").find(query).toArray();
-
   return {
     props: {
       data: JSON.parse(JSON.stringify(data)),
     },
   };
-}
+};

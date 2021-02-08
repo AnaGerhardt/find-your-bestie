@@ -5,6 +5,11 @@ import { useRouter } from "next/router";
 
 import styles from "styles/components/AutoSuggest.module.scss";
 
+type SuggestionType = {
+  city: string;
+  country: string;
+};
+
 export const AutoSuggest = (props) => {
   const router = useRouter();
   const [value, setValue] = useState("");
@@ -23,8 +28,8 @@ export const AutoSuggest = (props) => {
         );
   };
 
-  const getSuggestionValue = (suggestion) => suggestion.city;
-  const renderSuggestion = (suggestion) => (
+  const getSuggestionValue = (suggestion: SuggestionType) => suggestion.city;
+  const renderSuggestion = (suggestion: SuggestionType) => (
     <div className={styles.list}>
       {suggestion.city + ", " + suggestion.country}
     </div>
