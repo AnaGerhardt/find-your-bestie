@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { connectToDatabase } from "../lib/db";
-import { toast } from "react-toastify";
+import { toastSuccess, toastError } from "helpers/toastAlerts";
 
 import {
   SliderArrow,
@@ -36,10 +36,6 @@ export default function Main({ data }) {
   const router = useRouter();
   const [pets, setPets] = useState([]);
 
-  const toastError = () =>
-    toast["error"]("No match found :(", { toastId: "toastId" });
-  const toastSuccess = () => toast.dismiss("toastId");
-
   useEffect(() => {
     data.length > 0 ? (setPets(data), toastSuccess()) : toastError();
   }, [data]);
@@ -58,8 +54,7 @@ export default function Main({ data }) {
   const petFilter = (filter: Pet["type"]) => {
     router.replace({
       query: {
-        city: router.query.city,
-        country: router.query.country,
+        ...router.query,
         type: filter,
       },
     });

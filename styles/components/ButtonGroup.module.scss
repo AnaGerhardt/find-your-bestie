@@ -1,0 +1,31 @@
+﻿@import "../base.scss";
+
+.input {
+  position: absolute;
+  left: -9999em;
+  top: -9999em;
+
+  &:checked + label {
+    background-color: $logo-color;
+    color: $header-background-color;
+  }
+}
+
+.label {
+  float: left;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border: 1px solid $logo-color;
+  margin-right: -1px;
+  color: $logo-color;
+  background-color: $header-background-color;
+  font-weight: bold;
+
+  &:first-of-type {
+    border-radius: 0.7em 0 0 0.7em;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0.7em 0.7em 0;
+  }
+}

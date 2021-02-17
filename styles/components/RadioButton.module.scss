@@ -1,0 +1,48 @@
+﻿@import "../base.scss";
+
+.radio {
+  position: relative;
+  display: flex;
+  padding-left: 1.4rem;
+  align-items: center;
+  cursor: pointer;
+
+  .text {
+    position: relative;
+    padding: 0 0 0 0.6rem;
+    font-weight: 500;
+    pointer-events: none;
+  }
+
+  input {
+    display: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 2px;
+    width: 2px;
+    margin: -2px;
+
+    &:checked {
+      & ~ .checkmark:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: $logo-color;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+.checkmark {
+  content: "";
+  height: 1.3rem;
+  width: 1.3rem;
+  border: 1px solid $logo-color;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
