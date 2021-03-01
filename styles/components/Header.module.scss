@@ -181,9 +181,14 @@
   }
 }
 
-.nav a {
-  color: $header-background-color;
-  text-decoration: none;
+.nav {
+  button,
+  a {
+    color: $header-background-color;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0;
+  }
 }
 
 @media (max-width: $small-breakpoint) {

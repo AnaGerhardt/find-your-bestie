@@ -1,5 +1,5 @@
 ﻿import Head from "next/head";
-import styles from "styles/Login.module.scss";
+import styles from "styles/Favourites.module.scss";
 
 export default function Favourites() {
   return (
@@ -7,7 +7,10 @@ export default function Favourites() {
       <Head>
         <title>Favourites | Find Your Bestie!</title>
       </Head>
-      <main>Pets</main>
+      <main>
+        <h3>My wishlist</h3>
+        <div className={styles.list}></div>
+      </main>
     </>
   );
 }

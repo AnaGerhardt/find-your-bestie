@@ -5,6 +5,7 @@ export * from "./Rabbits";
 export * from "./Rodents";
 export * from "./Birds";
 export * from "./Logout";
+export * from "./Login";
 export * from "./Heart";
 export * from "./Filter";
 export * from "./Menu";

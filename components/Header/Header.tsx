@@ -3,8 +3,9 @@ import styles from "styles/components/Header.module.scss";
 import { ClientOnlyPortal } from "components";
 import RadioButton from "components/RadioButton/RadioButton";
 import ButtonGroup from "components/ButtonGroup/ButtonGroup";
-import { Logout, Heart, Filter, Menu } from "components/Icons";
+import { Login, Logout, Heart, Filter, Menu } from "components/Icons";
 import { useRouter } from "next/router";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 export const Header = () => {
   const router = useRouter();
@@ -112,6 +113,7 @@ export const Header = () => {
 
 export const SideDrawer = () => {
   const navRef = useRef();
+  const [session, loading] = useSession();
   return (
     <ClientOnlyPortal
       selector="#modal-root"
@@ -134,12 +136,22 @@ export const SideDrawer = () => {
               <span>Favourites</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <Logout />
-              <span>Logout</span>
-            </a>
-          </li>
+          {!session && (
+            <li>
+              <button onClick={() => signIn()}>
+                <Login />
+                <span>Sign in</span>
+              </button>
+            </li>
+          )}
+          {session && (
+            <li>
+              <button onClick={() => signOut()}>
+                <Logout />
+                <span>Logout</span>
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </ClientOnlyPortal>
