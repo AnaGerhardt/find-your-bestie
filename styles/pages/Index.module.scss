@@ -32,6 +32,7 @@
   }
 
   input {
+    @extend %round-input;
     height: 2.5rem;
     width: 70vw;
     max-width: 20rem;

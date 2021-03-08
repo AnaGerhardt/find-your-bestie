@@ -13,7 +13,12 @@ export const Header = () => {
   const ages = ["Young", "Adult", "Senior"];
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>Find Your Bestie!</div>
+      <button
+        className={styles.logo}
+        onClick={() => router.push(localStorage.getItem("mainWithParams"))}
+      >
+        Find Your Bestie!
+      </button>
       <div className={styles.assets}>
         <div className={styles.filter}>
           <button
@@ -140,7 +145,7 @@ export const SideDrawer = () => {
             <li>
               <button onClick={() => signIn()}>
                 <Login />
-                <span>Sign in</span>
+                {loading ? "Loading..." : <span>Sign in</span>}
               </button>
             </li>
           )}

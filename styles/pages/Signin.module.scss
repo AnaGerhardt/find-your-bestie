@@ -1,5 +1,32 @@
 ﻿@import "../base.scss";
 
+.form {
+  h2 {
+    opacity: 0.6;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid $default-font-color;
+    line-height: 0.1em;
+    margin: 2rem 0 1rem;
+  }
+  h2 span {
+    color: $default-font-color;
+    background: $header-background-color;
+    padding: 0 0.5rem;
+  }
+
+  label,
+  .input {
+    display: block;
+  }
+
+  .input {
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
 .providers {
   width: 20rem;
   height: auto;
@@ -15,7 +42,7 @@
   background-color: $header-background-color;
   border: 1px solid $logo-color;
   border-radius: 5px;
-  width: 15rem;
+  width: 100%;
   padding: 1rem;
   font-size: 1rem;
   color: $default-font-color;

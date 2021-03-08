@@ -3,11 +3,10 @@ import Providers from "next-auth/providers";
 
 const options = {
   providers: [
-    // Providers.Email({
-    //   server: process.env.EMAIL_SERVER,
-    //   from: process.env.EMAIL_FROM,
-    //   // maxAge: 24 * 60 * 60, // How long email links are valid for (default 24h)
-    // }),
+    Providers.Email({
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM,
+    }),
     Providers.GitHub({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,

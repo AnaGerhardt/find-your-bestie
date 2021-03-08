@@ -17,7 +17,12 @@ body {
 }
 
 input {
-  @extend %input;
+  background-color: $input-background;
+  color: $default-font-color;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
 
   // Not included in the mixin because of auto-suggest input
   border: $input-border;

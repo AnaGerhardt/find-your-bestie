@@ -8,7 +8,7 @@
 }
 
 .suggestionsContainer {
-  @extend %input;
+  @extend %round-input;
 }
 
 .suggestionsList {

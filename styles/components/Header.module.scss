@@ -8,17 +8,17 @@
   grid-template-columns: 1fr auto;
   gap: 2.5rem;
   padding: 0 2rem;
-  align-items: center;
+  //align-items: center;
   @include box-shadow;
 }
 
 .logo {
-  cursor: default;
   font-family: Ink Free;
   font-size: 1.4rem;
   font-weight: bold;
   color: $logo-color;
   width: 100%;
+  text-align: left;
 }
 
 .assets {

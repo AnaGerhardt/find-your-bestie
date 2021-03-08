@@ -38,6 +38,7 @@ export default function Main({ data }) {
 
   useEffect(() => {
     data.length > 0 ? (setPets(data), toastSuccess()) : toastError();
+    localStorage.setItem("mainWithParams", String(router.asPath));
   }, [data]);
 
   const settings = {

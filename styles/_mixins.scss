@@ -1,13 +1,7 @@
 ﻿@import "./variables.scss";
 
-%input {
-  font-family: $default-font-family;
-  font-weight: 400;
-  color: $default-font-color;
-  background-color: $input-background;
+%round-input {
   border-radius: 3rem;
-  outline: none;
-  font-size: 1rem;
 }
 
 @mixin box-shadow {
