@@ -1,5 +1,5 @@
 ﻿import Head from "next/head";
-import styles from "styles/Favourites.module.scss";
+import styles from "styles/pages/Favourites.module.scss";
 
 export default function Favourites() {
   return (
