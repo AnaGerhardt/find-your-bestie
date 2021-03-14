@@ -15,4 +15,6 @@
   list-style: none;
   padding: 0.5rem 0;
   cursor: pointer;
+  background-color: $header-background-color;
+  @extend %round-input;
 }

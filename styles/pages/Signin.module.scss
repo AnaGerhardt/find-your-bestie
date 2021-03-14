@@ -1,7 +1,7 @@
 ﻿@import "../base.scss";
 
 .form {
-  h2 {
+  h3 {
     opacity: 0.6;
     width: 100%;
     text-align: center;
@@ -9,7 +9,7 @@
     line-height: 0.1em;
     margin: 2rem 0 1rem;
   }
-  h2 span {
+  h3 span {
     color: $default-font-color;
     background: $header-background-color;
     padding: 0 0.5rem;

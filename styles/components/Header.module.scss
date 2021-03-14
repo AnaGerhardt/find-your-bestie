@@ -51,10 +51,11 @@
     width: 1.5rem;
     opacity: 0.6;
   }
-  &:hover,
-  &:active {
+  &:hover {
     color: $logo-color;
     transition: color 200ms linear;
+  }
+  &:active {
     + .filterContent {
       opacity: 1;
       visibility: visible;
@@ -206,5 +207,11 @@
     svg {
       width: 2rem;
     }
+  }
+  .filterContent {
+    width: 100vw;
+    right: 0;
+    padding: 2rem;
+    border-radius: 0;
   }
 }

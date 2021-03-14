@@ -31,9 +31,9 @@ export default function SignIn({ providers, csrfToken }: IProps) {
             <button className={styles.provider} type="submit">
               Sign in with Email
             </button>
-            <h2>
+            <h3>
               <span>or</span>
-            </h2>
+            </h3>
           </form>
         ) : (
           <div key={provider.name}>

@@ -23,11 +23,11 @@ export const Header = () => {
         <div className={styles.filter}>
           <button
             className={styles.filterButton}
-            // onClick={() =>
-            //   document
-            //     .getElementById("filter-content")
-            //     .classList.toggle(styles.visible)
-            // }
+            onClick={() =>
+              document
+                .getElementById("filter-content")
+                .classList.toggle(styles.visible)
+            }
           >
             <Filter />
             <span>Filters</span>
@@ -145,7 +145,7 @@ export const SideDrawer = () => {
             <li>
               <button onClick={() => signIn()}>
                 <Login />
-                {loading ? "Loading..." : <span>Sign in</span>}
+                <span>Sign in</span>
               </button>
             </li>
           )}
